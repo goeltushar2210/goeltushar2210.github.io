@@ -1,0 +1,32 @@
+{% extends 'shop/aboutcontactbase.html' %}
+{% load i18n %}
+{%  block aboutcontact %}
+
+<div class="section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+            {{ contact.contactus |safe}}                                                
+            </div>
+            <div class="col-md-7">                    
+                <div  class="section-title">
+                    <h3 class="title">Contact Form</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{message.tags}}" role="alert">
+                            {{message}}
+                        </div>
+                        {% endfor %}
+                {% endif %}        
+                </div>             
+                <form  id= "contact-form"  class="contact-form" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="SEND FORM">
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

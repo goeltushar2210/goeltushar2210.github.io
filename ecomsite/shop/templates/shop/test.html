@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/style.css' %}">
+    <script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+</head>
+<body>
+    
+<div class="section">
+    <div class="container-fluid">
+        <div  class="row">
+            <div class="col-md-12">
+                
+
+                <div class="section-title">
+                    <h2  class="title"> Latest Products </h2>                    
+                </div>
+            </div>
+                    {%  for rs in product_latest  %}
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div  class="productproduct-single">
+                    <div class="product-thumb">
+                        <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i>Quick view</a>
+                        <img src="{{ rs.image.url }}" alt="" style="height:300px">
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-price">{{ rs.price }}</h3>
+                    <h2 class="product-name"><a href="#">{{ rs.title }}</a> </h2>
+                    <div class="product-btns">
+                        <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                        <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                        <button class="primary-btn add-to-cart"><i class="fa fa-shoping-cart"></i>Add to cart</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {%  endfor  %}            
+        </div>
+        <div class="row">
+            {%  for rs in product_picked  %}
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div  class="productproduct-single">
+                    <div class="product-thumb">
+                        <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i>Quick view</a>
+                        <img src="{{ rs.image.url }}" alt="" style="height:300px">
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-price">{{ rs.price }}</h3>
+                    <h2 class="product-name"><a href="#">{{ rs.title }}</a> </h2>
+                    <div class="product-btns">
+                        <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                        <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                        <button class="primary-btn add-to-cart"><i class="fa fa-shoping-cart"></i>Add to cart</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {%  endfor  %}
+        </div>
+        
+    </div>
+</div>
+           
+</body>
+</html>        
